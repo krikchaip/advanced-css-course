@@ -6,19 +6,33 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  /* ? custom root element font-size (losing zoom ability) */
+  /* font-size: 10px; */
+
+  /* ? 100% from user settings font-size (16px) */
+  /* font-size: 100%; */
+
+  /* ? 10px/16px * 100 = 62.5%
+  /* ? whenever user zooms-in, the whole page automatically scales. */
+  /* ? because zooming makes user defaults font-size larger. */
+  font-size: 62.5%;
+}
+
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: 16px;
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 3rem;
 }
 
 .header {
@@ -34,9 +48,9 @@ body {
 
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
-  height: 35px;
+  top: 4rem;
+  left: 4rem;
+  height: 3.5rem;
 }
 
 .logo {
@@ -61,29 +75,29 @@ body {
 .heading-primary {
   color: white;
   text-transform: uppercase;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 .heading-primary-main {
-  --start-x: -100px;
-  --before-end-x: 10px;
+  --start-x: -10rem;
+  --before-end-x: 1rem;
 
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
 
   animation: fade-in 1s ease-out;
 }
 
 .heading-primary-sub {
-  --start-x: 100px;
-  --before-end-x: -10px;
+  --start-x: 10rem;
+  --before-end-x: -1rem;
 
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
 
   animation: fade-in 1s ease-out;
 }
@@ -104,21 +118,22 @@ body {
 
   to {
     opacity: 1;
-    transform: translateX(0px) translateY(0px);
+    transform: translateX(0) translateY(0);
   }
 }
 
 .btn:link,
 .btn:visited {
-  --start-y: 30px;
-  --before-end-y: -3px;
+  --start-y: 3rem;
+  --before-end-y: -0.3rem;
 
   -webkit-user-drag: none;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
-  border-radius: 100px;
+  padding: 1.5rem 4rem;
+  border-radius: 10rem;
   position: relative;
+  font-size: 1.6rem;
 
   transition: all 0.2s;
 
@@ -130,8 +145,8 @@ body {
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 /* animation flickering https://dev.to/linxea/css-flicker-on-hover-5gj5 */
@@ -141,14 +156,14 @@ body {
   left: 0;
   right: 0;
   top: 50%;
-  bottom: -3px;
+  bottom: -0.3rem;
   z-index: -1;
   background: transparent;
 }
 
 .btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
