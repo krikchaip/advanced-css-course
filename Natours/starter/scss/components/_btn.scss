@@ -1,0 +1,63 @@
+.btn {
+  --from-y: 3rem;
+  --to-y: -0.3rem;
+
+  -webkit-user-drag: none;
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  border-radius: 10rem;
+  font-size: 1.6rem;
+  position: relative;
+  color: $color-grey-dark;
+
+  // animating
+  transition: all 0.2s;
+  animation: fade 0.5s ease-out 0.75s;
+  animation-fill-mode: backwards;
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+  }
+
+  // animation flickering https://dev.to/linxea/css-flicker-on-hover-5gj5
+  &:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    bottom: -0.3rem;
+    z-index: -1;
+    background: transparent;
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &.btn-white {
+    background-color: $color-white;
+
+    &::before {
+      content: '';
+      position: absolute;
+      border-radius: inherit;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      background-color: $color-white;
+      transition: all 0.4s;
+    }
+
+    &:hover::before {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+}
