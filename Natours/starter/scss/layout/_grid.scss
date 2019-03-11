@@ -20,8 +20,8 @@
   }
 
   .col-1-of-2 {
-    // SASS can't do math across units.
-    // we have to use calc() instead.
+    // ! SASS can't do math across units.
+    // ! we have to use calc() instead.
     width: calc((100% - #{$gutter-horizontal}) / 2);
   }
 

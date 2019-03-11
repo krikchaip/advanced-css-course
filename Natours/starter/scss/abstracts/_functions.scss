@@ -1,7 +1,7 @@
-// Specifying a rigid root element font-size will only make
-// the page's font unresizable when a user is zooming.
-// Therefore, you should instead assign as percentages
-// to let the browser do the calculation.
+// ! Specifying a rigid root element font-size will only make
+// ! the page's font unresizable when a user is zooming.
+// ! Therefore, you should instead assign as percentages
+// ! to let the browser do the calculation.
 @function zoomable($n) {
   @return percentage($n / $root-font-size)
 }

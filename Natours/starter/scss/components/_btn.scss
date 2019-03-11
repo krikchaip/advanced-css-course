@@ -22,7 +22,7 @@
     box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
   }
 
-  // animation flickering https://dev.to/linxea/css-flicker-on-hover-5gj5
+  // ? animation flickering https://dev.to/linxea/css-flicker-on-hover-5gj5
   &:hover::after {
     content: '';
     position: absolute;

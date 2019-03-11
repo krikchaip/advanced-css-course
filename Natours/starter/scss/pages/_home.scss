@@ -34,7 +34,7 @@
     // ! quick fix on animation blink issue
     backface-visibility: hidden;
 
-    // ! those percentages are from its own width / height
+    // ? those percentages are from its own width / height
     transform: translate(-50%, -50%);
   }
 }
