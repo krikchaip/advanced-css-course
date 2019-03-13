@@ -39,7 +39,8 @@
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
 
-  &.btn-white {
+  &.btn-white,
+  &.btn--green {
     background-color: $color-white;
 
     &::before {
@@ -58,6 +59,15 @@
     &:hover::before {
       transform: scaleX(1.4) scaleY(1.6);
       opacity: 0;
+    }
+  }
+
+  &.btn--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::before {
+      background-color: $color-primary;
     }
   }
 }
