@@ -1,0 +1,105 @@
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    // ? to fix browser defaults input styling
+    font-family: inherit;
+    color: inherit;
+
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.5);
+    width: 90%;
+    display: block;
+    transition: all 0.3s;
+
+    border: none;
+    border-bottom: 3px solid transparent;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid $color-primary;
+    }
+
+    // ? simple form validation styling
+    &:focus:invalid {
+      border-color: $color-secondary-dark;
+    }
+
+    // ? styling input placeholder
+    &::placeholder {
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    display: block;
+    transition: all 0.3s;
+  }
+
+  // !! experimental !!
+  // !! STYLING BEFORE ENTERING ANY INPUT ON TEXT OR TEXTAREA !!
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    transform: translateY(-4rem);
+  }
+
+  &__radio-group {
+    display: inline-block;
+    width: 49%;                        // or use float instead
+  }
+
+  &__radio-label {
+    font-size: $default-font-size;
+    position: relative;
+    padding-left: 3.8rem;              // for custom radio button
+    cursor: pointer;
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  // ? custom radio button
+  &__radio-button {
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+
+    // ? an element when checked
+    &::before {
+      content: '';
+      display: block;
+      width: 1.3rem;
+      height: 1.3rem;
+      border-radius: 50%;
+      background-color: $color-primary;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      opacity: 0;                      // initially hidden
+      transition: opacity 0.2s;
+    }
+  }
+
+  // !! STYLING CHECK STATE WITH ONLY PURE CSS !!
+  // * condition: radio element with label
+  &__radio-input:checked ~ &__radio-label &__radio-button::before {
+    opacity: 1;
+  }
+}

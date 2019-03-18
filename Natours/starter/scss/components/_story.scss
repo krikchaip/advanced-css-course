@@ -16,7 +16,7 @@
     position: relative;
 
     // !! new property !!
-    // !! (required width and height) !!
+    // !! (required width and height with float) !!
     shape-outside: circle(50%);   // define where the content flows around the element
     clip-path: circle(50%);
     transform:
