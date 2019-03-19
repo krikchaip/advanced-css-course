@@ -1,44 +1,3 @@
-.header {
-  height: 95vh;
-  position: relative;
-  background-size: cover;
-  background-position: top;
-  background-image:
-    linear-gradient(
-      to right bottom,
-      rgba($color-primary-light, 0.8),
-      rgba($color-primary-dark, 0.8)
-    ),
-    url('../Natours/starter/img/hero.jpg');
-  clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
-
-  .logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-    height: 3.5rem;
-  }
-
-  .logo {
-    height: 100%;
-    user-select: none;
-  }
-
-  .text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    user-select: none;
-    text-align: center;
-
-    // ! quick fix on animation blink issue
-    backface-visibility: hidden;
-
-    // ? those percentages are from its own width / height
-    transform: translate(-50%, -50%);
-  }
-}
-
 .section-about {
   background-color: $color-grey-light-1;
   padding: 25rem 0;
@@ -87,7 +46,7 @@
 }
 
 .book {
-  // !! solid color gradient TRICK !!
+  // !! SOLID COLOR GRADIENT TRICK !!
   // ? clip-path alternative
   background-image:
     linear-gradient(
@@ -105,68 +64,5 @@
   &__form {
     width: 50%;
     padding: 6rem;
-  }
-}
-
-.footer {
-  background-color: $color-grey-dark-3;
-  padding: 10rem 0;
-  font-size: 1.4rem;
-  // color: $color-grey-light-1;
-
-  &__logo-box {
-    text-align: center;
-    margin-bottom: 8rem;
-  }
-
-  &__logo {
-    width: 15rem;
-    height: auto;
-  }
-
-  &__navigation {
-    border-top: 1px solid $color-grey-dark;
-    padding-top: 2rem;
-
-    // ? inline-block doesn't automatically occupy 100% of its available width
-    // ? (only the one that the content needs)
-    display: inline-block;
-  }
-
-  &__list {
-    list-style: none;
-  }
-
-  &__item {
-    display: inline-block;
-
-    &:not(:last-child) {
-      margin-right: 1.5rem;
-    }
-  }
-
-  &__link {
-    &:link,
-    &:visited {
-      color: $color-grey-light-1;
-      background-color: $color-grey-dark-3;
-      text-decoration: none;
-      text-transform: uppercase;
-      display: inline-block;
-      transition: all 0.2s;
-    }
-
-    &:hover,
-    &:active {
-      color: $color-primary;
-      box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
-      transform: rotate(5deg) scale(1.3);
-    }
-  }
-
-  &__copyright {
-    border-top: 1px solid $color-grey-dark;
-    padding-top: 2rem;
-    width: 80%;
   }
 }
