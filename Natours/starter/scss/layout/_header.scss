@@ -1,6 +1,9 @@
 .header {
   height: 95vh;
+
   position: relative;
+
+  clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
   background-size: cover;
   background-position: top;
   background-image:
@@ -9,14 +12,14 @@
       rgba($color-primary-light, 0.8),
       rgba($color-primary-dark, 0.8)
     ),
-    url('../Natours/starter/img/hero.jpg');
-  clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+    url(#{$img}/hero.jpg);
 
   .logo-box {
+    height: 3.5rem;
+
     position: absolute;
     top: 4rem;
     left: 4rem;
-    height: 3.5rem;
   }
 
   .logo {
@@ -25,16 +28,12 @@
   }
 
   .text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
+    @include absolute-center;
+
     user-select: none;
     text-align: center;
 
-    // ! quick fix on animation blink issue
+    // ? try this property if you have a weird animation issue.
     backface-visibility: hidden;
-
-    // ? those percentages are from its own width / height
-    transform: translate(-50%, -50%);
   }
 }
