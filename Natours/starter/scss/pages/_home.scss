@@ -3,6 +3,10 @@
   margin-top: -15vh;
 
   background-color: $color-grey-light-1;
+
+  @include responsive(tab-port) {
+    padding: 20rem 0;
+  }
 }
 
 .section-features {
@@ -22,6 +26,10 @@
 
   // ? skew back the direct children
   > * { transform: skewY(7deg); }
+
+  @include responsive(tab-port) {
+    padding: 10rem 0 5rem;
+  }
 }
 
 .section-tours {
@@ -29,11 +37,19 @@
   margin-top: -10rem;
 
   background-color: $color-grey-light-1;
+
+  @include responsive(tab-port) {
+    padding: 20rem 0 10rem 0;
+  }
 }
 
 .section-stories {
   padding: 15rem 0;
   position: relative;
+
+  @include responsive(tab-port) {
+    padding: 10rem 0;
+  }
 }
 
 .section-book {
@@ -43,6 +59,10 @@
       to right bottom,
       $color-primary-light,
       $color-primary-dark);
+
+  @include responsive(tab-port) {
+    padding: 10rem 0;
+  }
 }
 
 .book {
