@@ -20,6 +20,16 @@
     text-align: center;
 
     cursor: pointer;
+
+    @include responsive(tab-port) {
+      top: 4rem;
+      right: 4rem;
+    }
+
+    @include responsive(phone) {
+      top: 3rem;
+      right: 3rem;
+    }
   }
 
   &__icon {
@@ -75,6 +85,16 @@
 
     transform: scale(1);               // small -> very large circle
     transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+
+    @include responsive(tab-port) {
+      top: 4.5rem;
+      right: 4.5rem;
+    }
+
+    @include responsive(phone) {
+      top: 3.5rem;
+      right: 3.5rem;
+    }
   }
 
   &__nav {
