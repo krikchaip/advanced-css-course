@@ -16,6 +16,12 @@
 
   transition: all 0.3s;
 
+  // ! currently only supported on Safari
+  @supports (backdrop-filter: blur(10px)) {
+    background-color: rgba($color-black, 0.3);
+    backdrop-filter: blur(10px);
+  }
+
   // ? when this being a target for some anchor links
   // ? (eg. user click on <a href="#this-element">)
   &:target {
