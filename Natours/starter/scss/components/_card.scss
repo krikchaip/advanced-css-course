@@ -1,22 +1,26 @@
 .card {
-  perspective: 150rem; // ! must define on the parent element to make it work
-  position: relative; // make cards on top each other
   height: 52rem;
 
+  // ? make the cards on top of each other
+  position: relative;
+
+  // ! must define on the parent element to make it work
+  perspective: 150rem;
+
   &__side {
-    height: inherit;
-    transition: all 0.8s 0.15s ease;
-    position: absolute;
     width: 100%;
+    height: inherit;
 
-    // ? to fix children border overlapping
+    position: absolute;
+
     border-radius: 3px;
-    overflow: hidden;
-
     box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
-    // ! quick fix on animation blink issue
+    // * to fix children border overlapping
+    overflow: hidden;
+
     backface-visibility: hidden;
+    transition: all 0.8s 0.15s ease;
 
     &--front {
       background-color: $color-white;
@@ -30,8 +34,7 @@
           linear-gradient(
             to right bottom,
             $color-secondary-light,
-            $color-secondary-dark
-          );
+            $color-secondary-dark);
       }
 
       &--2 {
@@ -39,8 +42,7 @@
           linear-gradient(
             to right bottom,
             $color-primary-light,
-            $color-primary-dark
-          );
+            $color-primary-dark);
       }
 
       &--3 {
@@ -48,8 +50,7 @@
           linear-gradient(
             to right bottom,
             $color-tertiary-light,
-            $color-tertiary-dark
-          );
+            $color-tertiary-dark);
       }
     }
   }
@@ -65,60 +66,59 @@
 
   &__picture {
     height: 23rem;
+
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     background-size: cover;
 
     // ? Blend multiple images together with some filter
     background-blend-mode: screen;
 
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-
     &--1 {
       background-image:
-        url('../Natours/starter/img/nat-5.jpg'),
+        url(#{$img}/nat-5.jpg),
         linear-gradient(
           to right bottom,
           $color-secondary-light,
-          $color-secondary-dark
-        );
+          $color-secondary-dark);
     }
 
     &--2 {
       background-image:
-        url('../Natours/starter/img/nat-6.jpg'),
+        url(#{$img}/nat-6.jpg),
         linear-gradient(
           to right bottom,
           $color-primary-light,
-          $color-primary-dark
-        );
+          $color-primary-dark);
     }
 
     &--3 {
       background-image:
-        url('../Natours/starter/img/nat-7.jpg'),
+        url(#{$img}/nat-7.jpg),
         linear-gradient(
           to right bottom,
           $color-tertiary-light,
-          $color-tertiary-dark
-        );
+          $color-tertiary-dark);
     }
   }
 
   &__heading {
     width: 75%;
-    font-size: 2.8rem;
-    font-weight: 300;
-    text-transform: uppercase;
-    color: $color-white;
-    text-align: right;
+
     position: absolute;
     top: 12rem;
     right: 2rem;
+
+    color: $color-white;
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-align: right;
+    text-transform: uppercase;
   }
 
   &__heading-span {
     padding: 1rem 1.5rem;
 
-    // !! new property !!
+    // ! new property
     box-decoration-break: clone;
 
     &--1 {
@@ -126,8 +126,7 @@
         linear-gradient(
           to right bottom,
           rgba($color-secondary-light, 0.85),
-          rgba($color-secondary-dark, 0.85),
-        );
+          rgba($color-secondary-dark, 0.85));
     }
 
     &--2 {
@@ -135,8 +134,7 @@
         linear-gradient(
           to right bottom,
           rgba($color-primary-light, 0.85),
-          rgba($color-primary-dark, 0.85),
-        );
+          rgba($color-primary-dark, 0.85));
     }
 
     &--3 {
@@ -144,8 +142,7 @@
         linear-gradient(
           to right bottom,
           rgba($color-tertiary-light, 0.85),
-          rgba($color-tertiary-dark, 0.85),
-        );
+          rgba($color-tertiary-dark, 0.85));
     }
   }
 
@@ -153,14 +150,16 @@
     padding: 2rem;
 
     ul {
-      list-style: none;
       width: 80%;
       margin: 0 auto;
 
+      list-style: none;
+
       li {
-        text-align: center;
-        font-size: 1.5rem;
         padding: 1rem;
+
+        font-size: 1.5rem;
+        text-align: center;
 
         &:not(:last-child) {
           border-bottom: 1px solid $color-grey-light-2;
@@ -170,17 +169,15 @@
   }
 
   &__cta {
+    @include absolute-center;
+
     width: 90%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     text-align: center;
   }
 
   &__price-box {
-    color: $color-white;
     margin-bottom: 8rem;
+    color: $color-white;
   }
 
   &__price-only {
@@ -191,5 +188,52 @@
   &__price-value {
     font-size: 6rem;
     font-weight: 100;
+  }
+
+  @include responsive(tab-port) {
+    height: auto;
+
+    background-color: $color-white;
+
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    &__side {
+      position: relative;
+
+      box-shadow: none;
+
+      &--back {
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        border-top-right-radius: 0;
+        transform: rotateY(0);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &__details {
+      padding: 1rem 3rem;
+    }
+
+    &__cta {
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+
+      position: relative;
+      top: 0;
+      left: 0;
+
+      transform: translate(0);
+    }
+
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+
+    &__price-value {
+      font-size: 4rem;
+    }
   }
 }
