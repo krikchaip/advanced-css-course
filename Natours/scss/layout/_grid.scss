@@ -1,0 +1,50 @@
+// ? simple CSS grid system with float
+.row {
+  @include clearfix;
+
+  max-width: $grid-width;              // for a fluid grid. this would be 100%
+  margin: 0 auto $gutter-vertical;
+
+  @include responsive(tab-port) {
+    max-width: 50rem;
+    padding: 0 3rem;
+    margin-bottom: $gutter-vertical-small;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  [class^="col-"] {
+    margin-right: $gutter-horizontal;
+
+    float: left;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    // * there would be only a single column
+    // * on any portrait-width devices and below
+    @include responsive(tab-port) {
+      width: 100% !important;
+      margin-right: 0;
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  // ! SASS can't do math across units.
+  // ! So we have to use calc() instead.
+
+  $one-of-three: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  $one-of-four: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+
+  .col-1-of-2 { width: calc((100% - #{$gutter-horizontal}) / 2); }
+  .col-1-of-3 { width: calc((100% - 2 * #{$gutter-horizontal}) / 3); }
+  .col-1-of-4 { width: calc((100% - 3 * #{$gutter-horizontal}) / 4); }
+
+  .col-2-of-3 { width: calc(100% - #{$one-of-three} - #{$gutter-horizontal}); }
+  .col-2-of-4 { width: calc((100% - #{$gutter-horizontal}) / 2); }
+
+  .col-3-of-4 { width: calc(100% - #{$one-of-four} - #{$gutter-horizontal}); }
+}
