@@ -1,17 +1,20 @@
-// !! PURE CSS MODAL WITH ANCHOR TARGET !!
-// * condition: HTML anchor that point to some ID
+// ? Popup modal with only CSS #2
+// ? required: id property with some other links point to it
 .popup {
   height: 100vh;
   width: 100%;
+
   position: fixed;
+  z-index: 3000;
   top: 0;
   left: 0;
+
   background-color: rgba($color-black, 0.8);
-  z-index: 3000;
-  transition: all 0.3s;
 
   opacity: 0;
   visibility: hidden;
+
+  transition: all 0.3s;
 
   // ? when this being a target for some anchor links
   // ? (eg. user click on <a href="#this-element">)
@@ -29,64 +32,81 @@
     @include absolute-center;
 
     width: 75%;
-    background-color: $color-white;
-    box-shadow: 0 2rem 4rem rgba($color-black, 0.3);
-    border-radius: 3px;
-    opacity: 0;
-    transition: all 0.5s 0.2s;
-
-    // ? to fix <img> overlapping the border
-    overflow: hidden;
 
     // ? to make its children occupy their height to 100%
     display: table;
 
+    background-color: $color-white;
+
+    border-radius: 3px;
+    box-shadow: 0 2rem 4rem rgba($color-black, 0.3);
+
+    opacity: 0;
+
+    // ? to fix <img> overlapping the border
+    overflow: hidden;
+
     // ! transform override from the mixin above
     transform: translate(-50%, -50%) scale(0.5);
+    transition: all 0.5s 0.2s;
   }
 
   &__left {
     width: 100% * 1 / 3;
+
     display: table-cell;
     vertical-align: middle;
+
+    @include responsive(tab-port) {
+      display: none;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    display: block;
   }
 
   &__right {
     width: 100% * 2 / 3;
+    padding: 3rem 5rem;
+
     display: table-cell;
     vertical-align: middle;
-    padding: 3rem 5rem;
   }
 
   &__close {
-    color: $color-grey-dark;
+    display: inline-block;
+
     position: absolute;
     top: 2.5rem;
     right: 2.5rem;
+
+    color: $color-grey-dark;
     font-size: 3rem;
     text-decoration: none;
-    display: inline-block;
-    transition: all 0.2s;
     line-height: 1;
+
+    transition: all 0.2s;
 
     &:hover {
       color: $color-primary;
     }
   }
 
-  &__img {
-    display: block;
-    width: 100%;
-  }
-
   &__text {
-    font-size: 1.4rem;
     margin-bottom: 4rem;
+
+    font-size: 1.4rem;
     hyphens: auto;                     // relate to document's language
 
-    // !! NEW PROPERTY: COLUMN LAYOUT !!
+    // ! new property: column layout
     column-count: 2;
     column-gap: 4rem;
     column-rule: 1px solid $color-grey-light-2;
+
+    @include responsive(phone) {
+      column-count: 1;
+    }
   }
 }
