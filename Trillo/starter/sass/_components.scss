@@ -352,3 +352,72 @@
     &:not(:last-child) { margin-right: -1.5rem }
   }
 }
+
+.review {
+  padding: 3rem;
+  margin-bottom: 3.5rem;
+
+  position: relative;
+
+  background-color: #fff;
+
+  box-shadow: $shadow-light;
+  overflow: hidden;
+
+  &::before {
+    content: '\201C';                  // left-double quote
+
+    position: absolute;
+    z-index: 1;
+    top: -2.75rem;
+    left: -1rem;
+
+    color: $grey-light-2;
+    font-family: sans-serif;
+    font-size: 20rem;
+    line-height: 1;
+  }
+
+  &__text {
+    margin-bottom: 2rem;
+
+    position: relative;
+    z-index: 10;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+  }
+
+  &__photo {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-right: 1.5rem;
+
+    border-radius: 50%;
+  }
+
+  &__user-box {
+    margin-right: auto;
+  }
+
+  &__user-name {
+    margin-bottom: 4px;
+
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__user-date {
+    color: $grey-dark-3;
+    font-size: 1rem;
+  }
+
+  &__rating {
+    color: $primary;
+    font-size: 2.2rem;
+    font-weight: 500;
+  }
+}
