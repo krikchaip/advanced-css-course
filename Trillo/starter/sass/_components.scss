@@ -205,7 +205,7 @@
   display: flex;
   align-items: center;
 
-  border-bottom: 1px solid $grey-light-2;
+  border-bottom: $line;
 
   &__heading {
     padding: 1.5rem 3rem;
@@ -288,5 +288,67 @@
   &:hover {
     color: $grey-dark-1;
     animation: pulsate 1s infinite;
+  }
+}
+
+.paragraph {
+  margin-bottom: 2rem;
+  &:last-of-type { margin-bottom: 0 }
+}
+
+.list {
+  padding: 3rem 0;
+  margin: 3rem 0;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  list-style: none;
+
+  border-top: $line;
+  border-bottom: $line;
+
+  &__item {
+    width: 50%;
+    margin-bottom: 0.7rem;
+
+    &::before {
+      content: '';
+
+      width: 1rem;
+      height: 1rem;
+      margin-right: 0.7rem;
+
+      display: inline-block;
+
+      // ! new property
+      // * use it when you have a background image
+      // * but can't change its color
+      background-color: $primary;
+      mask-image: url(#{$img}/chevron-thin-right.svg);
+      mask-size: cover;
+    }
+  }
+}
+
+.recommend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: $grey-dark-3;
+  font-size: 1.3rem;
+
+  &__photo {
+    width: 4rem;
+    height: 4rem;
+
+    // to prevent shrinking from the border
+    box-sizing: content-box;
+
+    border-radius: 50%;
+    border: 3px solid white;
+
+    &:not(:last-child) { margin-right: -1.5rem }
   }
 }
