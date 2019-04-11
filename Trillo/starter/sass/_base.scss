@@ -18,6 +18,12 @@ $shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
 
 $line: 1px solid $grey-light-2;
 
+$bp-largest: 75em;                     // 1200px / 16px
+$bp-large: 68.75em;                    // 1100px / 16px
+$bp-medium: 56.25em;                   // 900px  / 16px
+$bp-small: 37.5em;                     // 600px  / 16px
+$bp-smallest: 31.25em;                 // 500px  / 16px
+
 @keyframes pulsate {
   0% {
     box-shadow: none;
@@ -45,9 +51,13 @@ $line: 1px solid $grey-light-2;
 
 html {
   font-family: 'Open Sans', sans-serif;
-  font-size: 62.5%;
+  font-size: 62.5%;                    // 62.5% of 16px = 10px
   font-weight: 400;
   line-height: 1.6;
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 50%;                    // 50% of 16px = 8px
+  }
 }
 
 body {

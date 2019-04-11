@@ -9,6 +9,13 @@
   align-items: center;
   flex: 0 0 40%;                       // fix-width flex item
 
+  @media only screen and (max-width: $bp-smallest) {
+    flex: 0 0 100%;
+    order: 1;
+
+    background-color: $grey-light-2;
+  }
+
   &__input {
     width: 90%;
     padding: 0.7rem 2rem;
@@ -25,10 +32,18 @@
 
     transition: all 0.2s;
 
+    @media only screen and (max-width: $bp-smallest) {
+      width: 100%;
+    }
+
     &:focus {
       width: 100%;
       background-color: $grey-light-3;
       outline: none;
+
+      @media only screen and (max-width: $bp-smallest) {
+        background-color: $grey-light-2;
+      }
     }
 
     &::placeholder {
@@ -45,6 +60,11 @@
     background-color: $grey-light-2;
 
     border: none;
+
+    @media only screen and (max-width: $bp-smallest) {
+      position: relative;
+      left: -1.5rem;
+    }
 
     &:focus  { outline: none }
     &:active { transform: translateY(2px) }
@@ -64,6 +84,10 @@
   align-items: center;
   align-self: stretch;
 
+  @media only screen and (max-width: $bp-smallest) {
+    margin-right: 0.6rem;
+  }
+
   > * {
     height: 100%;
     padding: 0 2rem;
@@ -72,6 +96,10 @@
     align-items: center;
 
     cursor: pointer;
+
+    @media only screen and (max-width: $bp-smallest) {
+      padding: 0.5rem 2rem;
+    }
 
     &:hover {
       background-color: $grey-light-2;
@@ -121,10 +149,23 @@
   font-size: 1.4rem;
   list-style: none;
 
+  backface-visibility: hidden;
+
+  @media only screen and (max-width: $bp-medium) {
+    margin: 0;
+    display: flex;
+  }
+
   &__item {
+    margin-bottom: 0.5rem;
     position: relative;
 
-    &:not(:last-child) { margin-bottom: 0.5rem }
+    @media only screen and (max-width: $bp-medium) {
+      margin: 0;
+      flex: 1;
+    }
+
+    &:last-child { margin-bottom: 0 }
 
     &::before {
       content: '';
@@ -171,6 +212,16 @@
     color: $grey-light-1;
     text-decoration: none;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-medium) {
+      padding: 2rem;
+      justify-content: center;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 1.5rem 0.5rem;
+      flex-direction: column;
+    }
   }
 
   &__icon {
@@ -180,6 +231,13 @@
 
     // ? the current color of this element or the parent
     fill: currentColor;
+
+    @media only screen and (max-width: $bp-small) {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-right: 0;
+      margin-bottom: 0.7rem;
+    }
   }
 }
 
@@ -190,6 +248,10 @@
   color: $grey-light-4;
   font-size: 1.2rem;
   text-align: center;
+
+  @media only screen and (max-width: $bp-medium) {
+    display: none;
+  }
 }
 
 .gallery {
@@ -214,6 +276,11 @@
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1px;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 1.25rem 2rem;
+      font-size: 1.8rem;
+    }
   }
 
   // ? each <svg> element has `display: inline` by default.
@@ -253,17 +320,29 @@
     text-align: center;
 
     background-color: $primary;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 0.37rem 1.5rem;
+    }
   }
 
   &__rating-average {
     margin-bottom: -3px;
     font-size: 2.25rem;
     font-weight: 300;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+    }
   }
 
   &__rating-count {
     font-size: 0.8rem;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 0.5rem;
+    }
   }
 }
 
@@ -349,7 +428,7 @@
     border-radius: 50%;
     border: 3px solid white;
 
-    &:not(:last-child) { margin-right: -1.5rem }
+    &:not(:last-child) { margin-right: -2rem }
   }
 }
 
@@ -363,6 +442,13 @@
 
   box-shadow: $shadow-light;
   overflow: hidden;
+
+  backface-visibility: hidden;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
 
   &::before {
     content: '\201C';                  // left-double quote
@@ -388,6 +474,10 @@
   &__user {
     display: flex;
     align-items: center;
+  }
+
+  &__friends {
+    display: flex;
   }
 
   &__photo {
@@ -427,12 +517,20 @@
 
   text-align: center;
 
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2.5rem 0;
+  }
+
   &__book-now {
     margin-bottom: 2.5rem;
 
     font-size: 2rem;
     font-weight: 300;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-smallest) {
+      padding: 0 2.6rem;
+    }
   }
 }
 
