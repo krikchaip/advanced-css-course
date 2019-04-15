@@ -1,0 +1,17 @@
+.container {
+  display: grid;
+  gap: 20px;
+  
+  grid-template-columns:
+    repeat(3, [col-start] 1fr [col-end]) 130px [grid-end];
+  grid-template-rows:
+    [header-start] 100px [header-end
+    box-start]     200px [box-end
+    main-start]    400px [main-end
+    footer-start]  100px [footer-end];
+}
+
+header { grid-column: col-start 1 / grid-end }
+main   { grid-area: main-start / col-start 1 / main-end / col-end 3 }
+aside  { grid-row: box-start / main-end }
+footer { grid-column: col-start 1 / grid-end }

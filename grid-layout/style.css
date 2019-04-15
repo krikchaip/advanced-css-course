@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 80%;
+  margin: 38px auto;
+}
+
+.container > * {
+  padding: 20px;
+
+  color: white;
+  font-family: sans-serif;
+  font-display: 30px;
+
+  background-color: red;
+}
