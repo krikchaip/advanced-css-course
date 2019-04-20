@@ -1,4 +1,38 @@
 .features {
+  margin: 15rem 0;
+
+  display: grid;
+
+  // ? responsive grid without media queries
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+
   grid-column: center-start / center-end;
-  background-color: $color-grey-light-2;
+  gap: 6rem;
+
+  // ? to remove unnecessary spaces from `align-item: stretch`
+  align-items: start;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 2.5rem;
+  row-gap: 1.5rem;
+
+  &__icon {
+    width: 4.5rem;
+    height: 4.5rem;
+
+    // ! `-1` on the `row-end` here
+    // ! doesn't mean 'the end of the grid`.
+    // ! but `the end of the explicit grid`
+    // ! so we have to use `span` instead.
+    grid-row: 1 / span 2;
+
+    fill: $color-primary;
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
 }
