@@ -3,16 +3,30 @@
   font-weight: 400;
 }
 
+.mb-sm { margin-bottom: 2rem }
+.mb-md { margin-bottom: 3rem }
+.mb-lg { margin-bottom: 4rem }
+.mb-hg { margin-bottom: 8rem }
+
 .heading-1 {
   @extend %heading;
 }
 
 .heading-2 {
   @extend %heading;
+  font-size: 4rem;
+  font-style: italic;
+  line-height: 1;
+
+  &--light { color: $color-grey-light-1 }
+  &--dark  { color: $color-grey-dark-1  }
 }
 
 .heading-3 {
   @extend %heading;
+  color: $color-primary;
+  font-size: 1.6rem;
+  text-transform: uppercase;
 }
 
 .heading-4 {
@@ -21,4 +35,24 @@
 
   &--light { color: $color-grey-light-1 }
   &--dark  { color: $color-grey-dark-1  }
+}
+
+.btn {
+  padding: 1.8rem 3rem;
+
+  color: white;
+  font-family: $font-display;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+
+  background-color: $color-primary;
+
+  border-radius: 0;
+  border: none;
+
+  cursor: pointer;
+
+  transition: all 0.2s;
+
+  &:hover { background-color: $color-primary-dark; }
 }
