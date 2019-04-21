@@ -9,12 +9,25 @@
 
   background-color: $color-secondary;
 
+  @media only screen and (max-width: $bp-medium) {
+    grid-row: 3;
+    grid-column: 1 / -1;
+  }
+
   &__list {
     display: grid;
     grid-template-columns: min-content max-content;
     gap: 5vh 2rem;
     align-items: center;
     justify-content: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-template-columns: repeat(3, min-content max-content);
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      grid-template-columns: min-content max-content;
+    }
   }
 
   &__img {

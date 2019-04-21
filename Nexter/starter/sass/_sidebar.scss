@@ -5,6 +5,13 @@
   justify-content: center;
 
   background-color: $color-primary;
+
+  @media only screen and (max-width: $bp-large) {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-content: flex-end;
+    align-items: center;
+  }
 }
 
 .nav-btn {
@@ -16,6 +23,11 @@
 
   border-radius: none;
   border: none;
+
+  @media only screen and (max-width: $bp-large) {
+    margin-top: 0;
+    margin-right: 3rem;
+  }
 
   &::before,
   &::after {
@@ -31,4 +43,9 @@
 
   &::before { transform: translateY(-1.5rem) }
   &::after { transform: translateY(calc(1.5rem - 2px)) }
+
+  @media only screen and (max-width: $bp-large) {
+    &::before { transform: translateY(-1.2rem) }
+    &::after { transform: translateY(calc(1.2rem - 2px)) }
+  }
 }

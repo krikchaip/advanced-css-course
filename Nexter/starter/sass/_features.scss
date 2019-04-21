@@ -11,6 +11,10 @@
 
   // ? to remove unnecessary spaces from `align-item: stretch`
   align-items: start;
+
+  @media only screen and (max-width: $bp-small) {
+    margin: 7.5rem 0;
+  }
 }
 
 .feature {
